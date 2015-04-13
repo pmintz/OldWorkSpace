@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HTML and JavaScript</title>
+<script>
+function doSubmit(){
+	if(validateText() == false){
+	alert("Requred data missing in Step 1");
+	}
+	else {
+		if(validateRadio() == false){
+		alert("Requred data missing in Step 3");
+		}
+		else {
+			if(validateRadio2() == false){
+				alert("Requred data missing in Step 2");
+				} 
+			else{
+			 	if(validateRadio3 == false) {
+			     alert("Make sure you have choosen interests");
+			     return false;
+			 	}
+			 	else{
+				 	if(validateRadio4 == false) {
+				     alert("Make sure you have choosen foods");
+				     return false;
+				 	}
+				 	else{
+					 	if(validateRadio5 == false) {
+					     alert("Make sure you have choosen animals");
+					     return false;
+					 	}
+				alert("You have been added to the Mailing List");
+	}
+	}
+	}
+	}
+	}
+	return;
+}//endSubmit
+
+function validateRadio(){
+var flag = false;
+	for(var i = 0; i < 2 && !flag; i++){
+		if(document.MailingList.sex[i].checked){
+			flag = true;
+			}
+		}
+	
+
+return flag;
+	
+}//end validateRadio
+
+function validateRadio2(){
+	var flag = false;
+		for(var i = 0; i < 7&& !flag; i++){
+			if(document.MailingList.race[i].checked){
+				flag = true;
+				}
+			}
+		
+
+	return flag;
+		
+	}//end validateRadio2
+
+	function validateRadio3(){
+		var flag = false;
+			for(var i = 0; i < 3&& !flag; i++){
+				if(document.MailingList.interests[i].checked){
+					flag = true;
+					}
+				}
+			
+
+		return flag;
+			
+		}//end validateRadio3
+
+		function validateRadio4(){
+			var flag = false;
+				for(var i = 0; i < 3&& !flag; i++){
+					if(document.MailingList.foods[i].checked){
+						flag = true;
+						}
+					}
+				
+
+			return flag;
+				
+			}//end validateRadio4
+
+			function validateRadio5(){
+				var flag = false;
+					for(var i = 0; i < 4&& !flag; i++){
+						if(document.MailingList.animals[i].checked){
+							flag = true;
+							}
+						}
+					
+
+				return flag;
+					
+				}//end validateRadio5		
+			
+function validateText(){
+	
+var customer = document.MailingList.customer.value;
+var flag = true;
+
+if(customer.length==0){
+	flag = false;
+}
+
+var address = document.MailingList.address.value;
+if(customer.length==0){
+	flag = false;
+}
+var city = document.MailingList.city.value;
+if(city.length==0){
+	flag = false;
+}
+var state = document.MailingList.state.value;
+if(state.length==0){
+	flag = false;
+}
+var zip = document.MailingList.zip.value;
+if(zip.length==0){
+	flag = false;
+}
+
+var phone = document.MailingList.phone.value;
+if(phone.length==0){
+	flag = false;
+}
+
+var email = document.MailingList.email.value;
+if(email.length==0){
+	flag = false;
+}
+
+return flag;
+
+}//end validateText()
+
+function doClear(){
+	document.MailingList.customer.value="";
+	document.MailingList.address.value="";
+	document.MailingList.city.value="";
+	document.MailingList.state.value="";
+	document.MailingList.zip.value="";
+	document.MailingList.phone.value="";
+	document.MailingList.email.value="";
+	
+	document.MailingList.sex[0].checked="";
+	document.MailingList.sex[1].checked="";
+	
+	document.MailingList.race[0].checked= "";
+	document.MailingList.race[1].checked="";
+	document.MailingList.race[2].checked="";
+	document.MailingList.race[3].checked="";
+	document.MailingList.race[4].checked="";
+	document.MailingList.race[5].checked="";
+	document.MailingList.race[6].checked="";
+
+	document.MailingList.interests[0].checked=false;
+	document.MailingList.interests[1].checked=false;
+	document.MailingList.interests[2].checked=false;
+
+	document.MailingList.foods[0].checked=false;
+	document.MailingList.foods[1].checked=false;
+	document.MailingList.foods[2].checked=false;
+
+	document.MailingList.animals[0].checked=false;
+	document.MailingList.animals[1].checked=false;
+	document.MailingList.animals[2].checked=false;
+	document.MailingList.animals[3].checked=false;
+	return;
+}
+</script>
+</head>
+<body>
+<form name="MailingList" method="post" action="HauntedServlet">
+<h1>Sunny Acres Mailing From</h1>
+<p>
+<h4>Step 1: Enter your name, address, and phone number:
+</h4>
+<span style="font-family: Courier New;">
+Name: &nbsp;&nbsp;
+&nbsp;<input name="customer" size="50" type="text"/><br/>
+Address: &nbsp;&nbsp;&nbsp;<input name="address" size="50" type="text"/><br/>
+City: &nbsp;&nbsp;&nbsp;<input name="city" size="50" type="text"/><br/>
+State: &nbsp;&nbsp;&nbsp;<input name="state" size="50" type="text"/><br/>
+Zip: &nbsp;&nbsp;&nbsp;<input name="zip" size="50" type="text"/><br/>
+Phone: &nbsp;&nbsp;<input name="phone" size="50" type="text"/><br/>
+email: &nbsp;&nbsp;<input name="email" size="50" type="text"/><br/>
+</span>
+
+<h4>Step 2: Select your race/ethnicity
+</h4>
+<span style="font-family: Courier New;">
+<input name="race" type="radio"/>White<br/>
+<input name="race" type="radio"/>Black<br/>
+<input name="race" type="radio"/>Hispanic<br/>
+<input name="race" type="radio"/>Indian<br/>
+<input name="race" type="radio"/>Asian<br/>
+<input name="race" type="radio"/>Native American<br/>
+<input name="race" type="radio"/>Other<br/>
+
+<h4>Step 3: Select your sex
+</h4>
+<span style="font-family: Courier New;">
+<input name="sex" type="radio"/>Male<br/>
+<input name="sex" type="radio"/>Female<br/>
+</span>
+
+<h4>Step 4: Select interests:
+</h4>
+<span style="font-family: Courier New">
+<input name="interests" type="checkbox"/>Corn Mazes<br/>
+<input name="interests" type="checkbox"/>Animals<br/>
+<input name="interests" type="checkbox"/>Food<br/>
+</span>
+
+<h4>Step 5: Select your favorite foods:
+</h4>
+<span style="font-family: Courier New">
+<input name="foods" type="checkbox"/>Fruits<br/>
+<input name="foods" type="checkbox"/>Vegatables<br/>
+<input name="foods" type="checkbox"/>Meats<br/>
+</span>
+
+<h4>Step 6: Select your favorite animals:
+</h4>
+<span style="font-family: Courier New">
+<input name="animals" type="checkbox"/>Horse<br/>
+<input name="animals" type="checkbox"/>Sheep<br/>
+<input name="animals" type="checkbox"/>Cow<br/>
+<input name="animals" type="checkbox"/>Chicken<br/>
+</span>
+
+<h4>Step 7: Comments</h4>
+<input name="comments" size="300" type="text"/><br/>
+
+<input type="submit" value="Submit Order" onClick="doSubmit();"/>
+<input type="button" value="Clear Entries" onClick="doClear();"/>
+</form>
+</body>
+</html>
